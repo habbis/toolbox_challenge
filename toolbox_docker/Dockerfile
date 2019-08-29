@@ -11,7 +11,6 @@ RUN apt-get  update -y  \
      sudo \
      php \
      php-sqlite3 \
-
      #     && cd /root/ \
      #&& mv /root/ssh /roo/t.ssh \
      #&& mv .ssh /root/ \
@@ -24,10 +23,12 @@ RUN apt-get  update -y  \
      && cp -r /root/start.sh /home/userboy/ \
      && cp -r  /root/.ssh /home/userboy/ \
      && chown userboy:userboy /home/userboy/start.sh \
-     && chown userboy:userboy -R /home/userboy/.ssh 
+     && chown userboy:userboy -R /home/userboy/.ssh \
+     && mkdir /home/userboy/toolbox-challenge
 EXPOSE 22
 EXPOSE 8080
 EXPOSE 80
+COPY toolbox-challenge /home/userboy/toolbox-challenge
 RUN cp /root/start.sh /usr/local/bin/start.sh && apt-get install -y bash-completion \
       vim \
       tmux \
