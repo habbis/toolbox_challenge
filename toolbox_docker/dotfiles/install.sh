@@ -7,17 +7,18 @@ command_exists() {
 echo "Installing dotfiles."
 
 
-source install/link.sh
+source ~/dotfiles/install/link.sh
 
-if [ ! -d /home/userboy/.vim ]; then
-cd /home/userboy || exit
+if [ ! -d /home/user/.vim ]; then
+cd /home/user || exit
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi 
 
 
 
-if [ ! -d /home/userboy/.scripts ]; then
+if [ ! -d /home/user/.scripts ]; then
 mkdir -p ~/.scripts/
+fi
 
 echo "Done. Reload your terminal."
