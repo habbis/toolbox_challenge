@@ -1,4 +1,5 @@
-FROM debian:unstable-slim 
+#FROM debian:unstable-slim
+FROM ubuntu:xenial
 # Tell debconf to run in non-interactive mode
 ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir -p /root/.ssh
@@ -11,6 +12,7 @@ RUN apt-get  update -y  \
      sudo \
      php \
      php-sqlite3 \
+     php-dev \
      #     && cd /root/ \
      #&& mv /root/ssh /roo/t.ssh \
      #&& mv .ssh /root/ \
@@ -28,7 +30,8 @@ RUN apt-get  update -y  \
 EXPOSE 22
 EXPOSE 8080
 EXPOSE 80
-COPY toolbox-challenge /home/userboy/toolbox-challenge
+#VOLUME [""]
+#COPY toolbox-challenge /home/userboy/toolbox-challenge
 RUN cp /root/start.sh /usr/local/bin/start.sh && apt-get install -y bash-completion \
       vim \
       tmux \
