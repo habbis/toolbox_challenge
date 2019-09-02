@@ -32,7 +32,7 @@ EXPOSE 8080
 EXPOSE 80
 VOLUME ["/home/user/toolbox-challenge"]
 VOLUME ["/home/user/dotfiles"]
-COPY  project_dotfiles  /home/user/dotfiles
+COPY  dotfiles  /home/user/dotfiles
 COPY  toolbox-challenge  /home/user/toolbox-challenge
 RUN cp /root/start.sh /usr/local/bin/start.sh && apt-get install -y bash-completion \
       vim \
