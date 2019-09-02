@@ -6,16 +6,18 @@ command_exists() {
 
 echo "Installing dotfiles."
 
-echo "Initializing submodule(s)"
-git submodule update --init --recursive
 
 source install/link.sh
 
-#source install/git.sh
+if [ ! -d /home/userboy/.vim ]; then
+cd /home/userboy || exit
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi 
 
 
-#echo "creating vim directories"
-#mkdir -p ~/.vim-tmp
+
+if [ ! -d /home/userboy/.scripts ]; then
 mkdir -p ~/.scripts/
 
 echo "Done. Reload your terminal."
