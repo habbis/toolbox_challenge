@@ -19,23 +19,23 @@ RUN apt-get  update -y  \
      && chmod 700 /root/.ssh \
      && chmod 644 /root/.ssh/authorized_keys \
      #&& chmod +x /root/start.sh \
-     &&  useradd -m -s /bin/bash userboy \
-     && usermod -aG  sudo userboy \
+     &&  useradd -m -s /bin/bash user \
+     && usermod -aG  sudo user \
      && echo "%sudo  ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers \
-     && cp -r /root/start.sh /home/userboy/ \
-     && cp -r  /root/.ssh /home/userboy/ \
-     && chown userboy:userboy /home/userboy/start.sh \
-     && chown userboy:userboy -R /home/userboy/.ssh \
-     && mkdir /home/userboy/toolbox-challenge
+     && cp -r /root/start.sh /home/user/ \
+     && cp -r  /root/.ssh /home/user/ \
+     && chown user:user /home/user/start.sh \
+     && chown user:user -R /home/user/.ssh \
+     && mkdir /home/user/toolbox-challenge
 EXPOSE 22
 EXPOSE 8080
 EXPOSE 80
-VOLUME ["/home/userboy/project_dotfiles"]
-COPY  project_dotfiles  /home/userboy/toolbox-challenge
+VOLUME ["/home/user/project_dotfiles"]
+COPY  project_dotfiles  /home/user/toolbox-challenge
 RUN cp /root/start.sh /usr/local/bin/start.sh && apt-get install -y bash-completion \
       vim \
       tmux \
       curl \
       wget 
-USER userboy
+USER user
 CMD  [ "start.sh" ] 
