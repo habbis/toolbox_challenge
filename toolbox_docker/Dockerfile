@@ -30,8 +30,8 @@ RUN apt-get  update -y  \
 EXPOSE 22
 EXPOSE 8080
 EXPOSE 80
-#VOLUME [""]
-#COPY toolbox-challenge /home/userboy/toolbox-challenge
+VOLUME ["/home/userboy/project_dotfiles"]
+COPY  project_dotfiles  /home/userboy/toolbox-challenge
 RUN cp /root/start.sh /usr/local/bin/start.sh && apt-get install -y bash-completion \
       vim \
       tmux \
