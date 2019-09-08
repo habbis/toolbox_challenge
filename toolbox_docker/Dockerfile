@@ -13,6 +13,8 @@ RUN apt-get  update -y  \
      php \
      php-sqlite3 \
      php-dev \
+     #php-xde \
+     php-xdebug \
      #     && cd /root/ \
      #&& mv /root/ssh /roo/t.ssh \
      #&& mv .ssh /root/ \
