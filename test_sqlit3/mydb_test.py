@@ -1,14 +1,20 @@
 #!bin/python
 
 import sqlite3
+from sqlite3 import Error
 
-conn = sqlite3.connect('mydb.db')
-print ("Opened databa successfully")
+def sql_connection():
+    try:
 
-# create table 
+       conn = sqlite3.connect('mydb.db')
+       return conn
+    except Error:
+       print(Error)
 
-conn.execute("CREATE TABLE cake(ID INT PRIMARY KEY, name text, email text, brought int, week int)")
+def sql_table(conn):
+    mycursor = conn.cursor()
 
-print ("Table Create succsessfylly")
-
-conn.close()
+    mycursor.execute("CREATE TABLE cake(ID INT PRIMARY KEY, name text, email text, brought int, week int)")
+    conn.commit()
+conn = sql_connection()
+sql_table(conn)

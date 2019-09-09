@@ -1,6 +1,6 @@
     <footer class="py-5 bg-dark fixed-bottom">
         <div class="container">
-            <p class="m-0 text-center text-white">Delivered by [YOUR NAME]</p>
+            <p class="m-0 text-center text-white">Delivered by [ebbestad]</p>
         </div>
     </footer>
 
